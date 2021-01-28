@@ -4,9 +4,18 @@ const { v4: uuid } = require('uuid')
 const { isWebUri } = require('valid-url')
 const logger = require('../logger')
 const store = require('../store')
+const BookmarksService = require('./bookmarks-service')
 
 const bookmarksRouter = express.Router()
 const bodyParser = express.json()
+
+const serializeBookmark = bookmark => ({
+  id: bookmark.id,
+  title: bookmark.title,
+  url: bookmark.url,
+  description: bookmark.description,
+  rating: Number(bookmark.rating),
+})
 
 bookmarksRouter
   .route('/bookmarks')

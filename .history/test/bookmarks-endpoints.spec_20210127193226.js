@@ -2,8 +2,8 @@ const knex = require('knex')
 const fixtures = require('./bookmarks-fixtures')
 const app = require('../src/app')
 // TODO: remove when updating POST and DELETE
-const store = require('../src/store')
-// const { makeBookmarksArray } = require('./bookmarks-fixtures')
+// const store = require('../src/store')
+const { makeBookmarksArray } = require('./bookmarks-fixtures')
 
 describe('Bookmarks Endpoints', () => {
   let bookmarksCopy, db

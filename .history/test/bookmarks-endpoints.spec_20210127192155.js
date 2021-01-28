@@ -3,7 +3,6 @@ const fixtures = require('./bookmarks-fixtures')
 const app = require('../src/app')
 // TODO: remove when updating POST and DELETE
 const store = require('../src/store')
-// const { makeBookmarksArray } = require('./bookmarks-fixtures')
 
 describe('Bookmarks Endpoints', () => {
   let bookmarksCopy, db
@@ -21,6 +20,9 @@ describe('Bookmarks Endpoints', () => {
   before('cleanup', () => db('bookmarks').truncate())
 
   afterEach('cleanup', () => db('bookmarks').truncate())
+
+  context('Given there are articles in the database', () => {
+    const testBookmarks = makeBookmarksArray()
 
   // TODO: refactor to use db when updating POST and DELETE
   beforeEach('copy the bookmarks', () => {
